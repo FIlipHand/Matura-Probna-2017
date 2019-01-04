@@ -1,0 +1,76 @@
+Zadanie 1
+1.1 
+F F P F
+1.2 
+F F P F
+1.3 
+P F F F
+1.4 
+F F F P
+Zadanie 2
+2.1
+84  - 5 - 50, 20, 10, 2, 2
+533 - 7 - 200, 200, 100, 20, 10, 2, 1
+2.2
+public static int metoda_zachlanna(int [] Nomin, int k, int n){
+	int cnt = 0;
+	for(int i = n-1 ; i < 0 ; --i){
+		while(k>=Nomin[i]){
+			k-=Nomin[i];
+			++cnt;
+		}
+	}
+	return cnt;
+}
+2.3
+2  -> 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7
+7  -> 0 1 1 2 2 3 3 1 2 2 3 3 4 4 2
+10 -> 0 1 1 2 2 3 3 1 2 2 1 2 2 3 2
+3.1
+92  - 2*2*23 -      1, 2, 4, 23, 46, 92    - NIE
+114 - 2*3*19 - 1 ,2 ,3 ,6 ,19 ,38 ,57 ,114 - TAK
+3.2
+public static String method(int n){
+ 	if (n == 1){
+            return false;
+        }
+	int cnt = 0;
+        for (int i = 2; i <n-1 ; ++i) {
+        	if (n%i==0){
+                	++cnt;}
+        }
+        if (cnt==0)
+            return "TAK";
+        else
+            return "NIE";
+    }
+3.3
+public static String method(int n) {
+        ArrayList<Integer> arraylist = new ArrayList<>();
+        ArrayList<Integer> useless = new ArrayList<>();
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                arraylist.add(i);
+            }
+        }
+        for (int i = 0; i < arraylist.size(); ++i) {
+            int cnt = 0;
+            for (int j = 2; j < arraylist.get(i) - 1; ++j) {
+                if (arraylist.get(i) % j == 0)
+                    ++cnt;
+            }
+            if (cnt != 0)
+                useless.add(arraylist.get(i));
+
+        }
+        for (int i = 0; i < arraylist.size(); ++i) {
+            arraylist.remove(useless.get(i));
+        }
+        if (arraylist.size()==3)
+            return arraylist.get(0)+" "+arraylist.get(1)+" "+arraylist.get(2);
+        else
+            return "NIE";
+    }
+
+
+ 
